@@ -86,6 +86,11 @@ Mayor
 	description = "You are the Mayor's best friend, you helped them get where they are. While they handle civil matters, you've been rewarded with more hands-on work, as preferred. With your loyal patrolmen, you maintain your claim to authority by keeping the peace, and protecting the citizens from threats within and without. Never leave Oasis undefended, and don't let its people die out. You have nowhere left to go, if this town falls, so will you."
 	selection_color = "#d7b088"
 	exp_requirements = 1500
+	
+	loadout_options = list(
+	/datum/outfit/loadout/thelaw,
+	/datum/outfit/loadout/dacommissioner,
+	)
 
 	outfit = /datum/outfit/job/den/f13sheriff
 
@@ -113,20 +118,38 @@ Mayor
 	ears = 			/obj/item/radio/headset/headset_town
 	uniform =  		/obj/item/clothing/under/f13/sheriff
 	neck =			/obj/item/storage/belt/holster
-	shoes = 		/obj/item/clothing/shoes/f13/cowboy
-	suit = 			/obj/item/clothing/suit/armor/f13/town/sheriff
-	head = 			/obj/item/clothing/head/f13/town/sheriff
+	shoes = 		/obj/item/clothing/shoes/f13/cowboy	
 	glasses =		/obj/item/clothing/glasses/sunglasses
-	l_hand = 		/obj/item/gun/ballistic/rifle/repeater/brush
 	l_pocket =		/obj/item/storage/bag/money/small/den
 	backpack_contents = list(
-		/obj/item/gun/ballistic/revolver/m29/peacekeeper = 1,
-		/obj/item/storage/box/deputy_badges = 1,
-		/obj/item/ammo_box/tube/c4570 = 3,
-		/obj/item/ammo_box/m44 = 2,
+		/obj/item/storage/box/deputy_badges = 1
 		/obj/item/restraints/handcuffs = 1,
 		/obj/item/melee/classic_baton = 1,
 		/obj/item/melee/onehanded/knife/hunting = 1,
+		)
+		
+/datum/outfit/loadout/thelaw
+	name = "Law Man"
+	suit = /obj/item/clothing/suit/armor/f13/town/sheriff
+	head = /obj/item/clothing/head/f13/town/sheriff
+	r_hand = /obj/item/gun/ballistic/rifle/repeater/brush
+	belt = /obj/item/gun/ballistic/revolver/m29/peacekeeper = 1
+	backpack_contents = list(
+		/obj/item/ammo_box/tube/c4570 = 3,
+		/obj/item/ammo_box/m44 = 2,
+		)
+
+/datum/outfit/loadout/dacommissioner
+	name = "The Commissioner"
+	uniform = /obj/item/clothing/under/f13/detectivealt
+	suit = /obj/item/clothing/suit/armor/f13/town/commissioner
+	head = /obj/item/clothing/head/f13/town/commissioner
+	shoes = /obj/item/clothing/shoes/combat
+	r_hand = /obj/item/gun/energy/laser/aer9
+	belt = /obj/item/gun/ballistic/automatic/pistol/sig/commissioner
+	backpack_contents = list(
+		/obj/item/stock_parts/cell/ammo/mfc = 1,
+		/obj/item/ammo_box/magazine/m9mm = 3,
 		)
 
 /datum/outfit/job/den/f13sheriff/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
@@ -176,6 +199,7 @@ Mayor
 
 	ears = /obj/item/radio/headset/headset_town
 	id = /obj/item/card/id/dogtag/deputy
+	neck = /obj/item/storage/belt/holster
 	backpack = /obj/item/storage/backpack/satchel/explorer
 	satchel = /obj/item/storage/backpack/satchel/explorer
 	l_pocket = /obj/item/storage/bag/money/small/settler
@@ -185,7 +209,6 @@ Mayor
 	uniform = /obj/item/clothing/under/f13/cowboyb
 	backpack_contents = list(
 		/obj/item/restraints/handcuffs = 1,
-		/obj/item/storage/belt/holster = 1,
 		)
 
 /datum/outfit/loadout/frontierjustice
